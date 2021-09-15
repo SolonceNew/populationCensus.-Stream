@@ -36,7 +36,8 @@ public class Main {
 
         List<Person> workablePeople = persons.stream()
                 .filter(v -> v.getEducation().equals(Education.HIGHER))
-                .filter(v ->  v.getAge() > 13 && v.getAge() < 65)
+                .filter(v ->  v.getAge() > 17)
+                .filter(v -> (v.getAge() < 66 && v.getSex().equals(Sex.MAN)) || (v.getAge() < 61 && v.getSex().equals(Sex.WOMEN)))
                 .sorted(Comparator.comparing(Person::getSurname))
                 .collect(Collectors.toList());
         System.out.println("Работоспособное население: ");
